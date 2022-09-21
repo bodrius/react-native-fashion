@@ -26,8 +26,8 @@ export const PanGestureScreen = () => {
     height: 0,
   });
 
-  const boundX = container.width - CARD_WIDTH;
-  const boundY = container.height - CARD_HEIGHT;
+  const boundX = container.width - CARD_WIDTH - 3;
+  const boundY = container.height - CARD_HEIGHT - 3;
 
   const onGestureEvent = useAnimatedGestureHandler<
     PanGestureHandlerGestureEvent,
