@@ -6,20 +6,28 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import {
+  NavigationProp,
+  RouteProp,
+  useRoute,
+  useNavigation,
+} from '@react-navigation/native';
 
 import {RouteService} from '../shared';
 import {routeData} from '../navigation/routes';
 
 export const HomeScreen = () => {
+    const navigation = useNavigation();
+
   return (
     <View style={styles.layout}>
       <ScrollView>
         {routeData.map((item, index) => (
-         index !==0 &&  <TouchableOpacity
+           <TouchableOpacity
             key={item.routeName}
             activeOpacity={0.7}
             style={styles.box}
-            onPress={() => RouteService.navigate(item.routeName)}>
+            onPress={() => navigation.navigate(item.routeName)}>
             <Text style={styles.name}>{item.name}</Text>
             <Text style={styles.name}> -->  </Text>
           </TouchableOpacity>

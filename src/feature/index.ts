@@ -1,1 +1,0 @@
-export {SwipeGesture} from './SwipeGesture';

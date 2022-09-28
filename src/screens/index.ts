@@ -1,7 +1,7 @@
-export {PanGestureScreen} from './PanGestureScreen';
 export {HomeScreen} from './HomeScreen';
 
-export {LeftScreen} from './LeftScreen';
-export {RightScreen} from './RightScreen';
-export {BottomScreen} from './BottomScreen';
-export {SecondBottomScreen} from './SecondBottomScreen';
+//feature
+export {PanGestureScreen} from './PanGestureScreen';
+export {MainScreen} from './SwipeNavigation/MainScreen';
+export {RightScreen} from './SwipeNavigation/RightScreen';
+export {VideoVerticalCarouselScreen} from './VideoVerticalCarouselScreen';

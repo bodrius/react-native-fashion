@@ -16,8 +16,8 @@ const CARD_WIDTH = 200;
 const CARD_HEIGHT = 200;
 
 export const PanGestureScreen = () => {
-  const translateY = useSharedValue(3);
-  const translateX = useSharedValue(3);
+  const translateY = useSharedValue(0);
+  const translateX = useSharedValue(0);
 
   const [container, setContainer] = useState<LayoutRectangle>({
     x: 0,
@@ -46,14 +46,14 @@ export const PanGestureScreen = () => {
       context.offsetY = translateY.value;
     },
 
-    onEnd: event => {
+    onEnd: ({velocityX, velocityY}) => {
       translateX.value = withDecay({
-        velocity: event.velocityX,
+        velocity: velocityX,
         clamp: [3, boundX],
       });
 
       translateY.value = withDecay({
-        velocity: event.velocityY,
+        velocity: velocityY,
         clamp: [3, boundY],
       });
     },
