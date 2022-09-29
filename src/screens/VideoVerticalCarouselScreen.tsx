@@ -5,7 +5,6 @@ import {
   NativeSyntheticEvent,
   NativeScrollEvent,
   Text,
-  StyleSheet,
 } from 'react-native';
 import Video from 'react-native-video';
 import {windowHeight, windowWidth} from '../helpers';
@@ -54,8 +53,6 @@ export const VideoVerticalCarouselScreen = () => {
   };
 
   const renderItem = ({item, index}: any) => {
-    console.log('index === activeSlide', index === activeSlide);
-
     return (
       <View
         style={{

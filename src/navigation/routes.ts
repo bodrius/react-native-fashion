@@ -3,6 +3,7 @@ export enum Routes {
   PAN_GESTURE = 'PAN_GESTURE',
   SNAP_CHAT_SCREEN = 'SNAP_CHAT_SCREEN',
   VIDEO_VERTICAL_SCREEN = 'VIDEO_VERTICAL_SCREEN',
+  VIDEO_HORIZONTAL_SCREEN = 'VIDEO_HORIZONTAL_SCREEN',
 
   SWIPE_STACK = 'SWIPE_STACK',
   SWIPE_SCREEN = 'SWIPE_SCREEN',
@@ -28,5 +29,10 @@ export const routeData = [
   {
     name: 'Video Carousel (Vertical)',
     routeName: Routes.VIDEO_VERTICAL_SCREEN,
+  },
+
+  {
+    name: 'Video Carousel (Horizontal)',
+    routeName: Routes.VIDEO_HORIZONTAL_SCREEN,
   },
 ];

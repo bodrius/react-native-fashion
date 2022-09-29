@@ -9,6 +9,7 @@ import {
   MainScreen,
   RightScreen,
   VideoVerticalCarouselScreen,
+  VideoHorizontalCarouselScreen,
 } from '../screens';
 import SnapChatStack from '../screens/SnapChatScreen';
 
@@ -57,6 +58,14 @@ export const Navigator = () => {
       <Stack.Screen
         name={Routes.VIDEO_VERTICAL_SCREEN}
         component={VideoVerticalCarouselScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name={Routes.VIDEO_HORIZONTAL_SCREEN}
+        component={VideoHorizontalCarouselScreen}
         options={{
           headerShown: false,
         }}
