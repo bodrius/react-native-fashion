@@ -4,6 +4,7 @@ export enum Routes {
   SNAP_CHAT_SCREEN = 'SNAP_CHAT_SCREEN',
   VIDEO_VERTICAL_SCREEN = 'VIDEO_VERTICAL_SCREEN',
   VIDEO_HORIZONTAL_SCREEN = 'VIDEO_HORIZONTAL_SCREEN',
+  CIRCULAR_GRADIENT_SCREEN = 'CIRCULAR_GRADIENT_SCREEN',
 
   SWIPE_STACK = 'SWIPE_STACK',
   SWIPE_SCREEN = 'SWIPE_SCREEN',
@@ -34,5 +35,10 @@ export const routeData = [
   {
     name: 'Video Carousel (Horizontal)',
     routeName: Routes.VIDEO_HORIZONTAL_SCREEN,
+  },
+
+  {
+    name: 'Circular gradient',
+    routeName: Routes.CIRCULAR_GRADIENT_SCREEN,
   },
 ];

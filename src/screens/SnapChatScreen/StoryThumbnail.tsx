@@ -56,7 +56,7 @@ const StoryThumbnail = ({story}: StoryThumbnailProps) => {
             opacity: pressed ? 0.5 : 1,
             width: 50,
             height: 50,
-            borderRadius: 500,
+            borderRadius: 6,
           })}
           onPress={() => {
             setOpacity(0);

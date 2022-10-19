@@ -8,10 +8,12 @@ import {
   HomeScreen,
   MainScreen,
   RightScreen,
+  CircularGradientScreen,
   VideoVerticalCarouselScreen,
   VideoHorizontalCarouselScreen,
 } from '../screens';
 import SnapChatStack from '../screens/SnapChatScreen';
+import {windowHeight, windowWidth} from '../helpers';
 
 const Stack = createStackNavigator();
 
@@ -68,6 +70,18 @@ export const Navigator = () => {
         component={VideoHorizontalCarouselScreen}
         options={{
           headerShown: false,
+          gestureResponseDistance: {
+            vertical: windowHeight,
+            horizontal: windowWidth,
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name={Routes.CIRCULAR_GRADIENT_SCREEN}
+        component={CircularGradientScreen}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
@@ -79,25 +93,34 @@ const SharedStack = createSharedElementStackNavigator();
 export const SwipeNavigator = () => (
   <SharedStack.Navigator
     detachInactiveScreens={false}
-    mode="card"
+    // mode="modal"
     screenOptions={{
       gestureEnabled: true,
       headerShown: false,
-      cardOverlayEnabled: true,
+      // cardOverlayEnabled: true,
       cardStyle: {backgroundColor: 'transparent'},
     }}>
     <SharedStack.Screen
       name={Routes.SWIPE_SCREEN}
       component={MainScreen}
       options={{
-        headerShown: true,
+        headerShown: false,
+        detachPreviousScreen: true,
       }}
     />
     <SharedStack.Screen
       name={Routes.RIGHT_SWIPE_SCREEN}
       component={RightScreen}
-      sharedElements={route => {
-        return ['1'];
+      options={{
+        gestureResponseDistance: {
+          vertical: windowHeight,
+          horizontal: windowWidth,
+        },
+        detachPreviousScreen: false,
+        headerShown: false,
+        cardStyle: {backgroundColor: 'transparent'},
+        cardOverlayEnabled: true,
+        // ...TransitionPresets.SlideFromRightIOS,
       }}
     />
   </SharedStack.Navigator>

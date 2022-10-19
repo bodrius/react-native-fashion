@@ -8,7 +8,7 @@ export const RightScreen = () => {
       <View
         style={[
           StyleSheet.absoluteFillObject,
-          {backgroundColor: 'green', paddingHorizontal: 20, paddingTop: 70},
+          {paddingHorizontal: 20, paddingTop: 70},
         ]}>
         <Image
           source={require('./3.jpg')}

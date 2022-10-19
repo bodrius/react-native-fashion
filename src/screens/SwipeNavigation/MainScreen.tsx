@@ -35,18 +35,12 @@ export const MainScreen = () => {
         snapPoint(-translationX, -velocityX, [0, windowWidth]) === windowWidth;
 
       if (snapBack) {
-        runOnJS(navigateToRightScreen);
-        // navigateToRightScreen();
-        // runOnJS(() => navigate(Routes.RIGHT_SWIPE_SCREEN))();
+        runOnJS(navigate)(Routes.RIGHT_SWIPE_SCREEN);
       } else {
         isGestureActive.value = false;
       }
     },
   });
-
-  const navigateToRightScreen = () => {
-    navigate(Routes.RIGHT_SWIPE_SCREEN);
-  };
 
   return (
     <PanGestureHandler {...{onGestureEvent}}>
