@@ -7,3 +7,4 @@ export {RightScreen} from './SwipeNavigation/RightScreen';
 export {VideoVerticalCarouselScreen} from './VideoVerticalCarouselScreen';
 export {VideoHorizontalCarouselScreen} from './VideoHorizontalCarouselScreen';
 export {CircularGradientScreen} from './CircularGradientScreen';
+export {FlatListSeparator} from './FlatListSeparator';

@@ -1,27 +1,67 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import Animated, {Easing} from 'react-native-reanimated';
-import {useTiming} from 'react-native-redash';
+import ReactNativeBiometrics from 'react-native-biometrics';
+import React, {useEffect, useCallback, useState, useMemo} from 'react';
+import {StyleSheet, View, Text, TouchableOpacity, Alert} from 'react-native';
 
-import {CircularGradient} from './CircularGradient';
-
-const {Clock} = Animated;
+const PAYLOAD_SALT = 'heyLove'; // from .env
 
 export const CircularGradientScreen = () => {
-  const clock = new Clock();
-  //   const timing = useTiming();
+  const [biometricData, setBiometricData] = useState({
+    available: false,
+    signature: '',
+    biometryType: '',
+  });
 
-  const config = {
-    duration: 10 * 1000,
-    toValue: 1,
-    easing: Easing.linear,
-  };
+  const rnBiometrics = useMemo(() => new ReactNativeBiometrics(), []);
 
-  return (
-    <View style={styles.container}>
-      <CircularGradient progress={0.5} />
-    </View>
-  );
+  const isAvailableBiometric = useCallback(async () => {
+    try {
+      const {biometryType, available} = await rnBiometrics.isSensorAvailable();
+
+      if (biometryType && available) {
+        const {success, signature} = await rnBiometrics.createSignature({
+          promptMessage: 'Log In',
+          payload: PAYLOAD_SALT,
+        });
+
+        if (success && signature) {
+          setBiometricData({
+            signature,
+            available,
+            biometryType,
+          });
+
+          Alert.alert('Signature generated success', `${signature}`);
+        }
+      }
+    } catch (error) {
+      throw error;
+    }
+  }, [rnBiometrics]);
+
+  useEffect(() => {
+    isAvailableBiometric();
+  }, [isAvailableBiometric]);
+
+  const biometric = useCallback(async () => {
+    try {
+      const {success, signature} = await rnBiometrics.createSignature({
+        promptMessage: 'Log In',
+        payload: PAYLOAD_SALT,
+      });
+
+      if (success && signature) {
+        setBiometricData(prev => ({
+          ...prev,
+          signature,
+        }));
+        Alert.alert('Signature generated success', `${signature}`);
+      }
+    } catch (error) {
+      throw error;
+    }
+  }, [rnBiometrics]);
+
+  return <View style={styles.container}></View>;
 };
 
 const styles = StyleSheet.create({
@@ -29,6 +69,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
 });

@@ -8,6 +8,7 @@ import {
   HomeScreen,
   MainScreen,
   RightScreen,
+  FlatListSeparator,
   CircularGradientScreen,
   VideoVerticalCarouselScreen,
   VideoHorizontalCarouselScreen,
@@ -80,6 +81,14 @@ export const Navigator = () => {
       <Stack.Screen
         name={Routes.CIRCULAR_GRADIENT_SCREEN}
         component={CircularGradientScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name={Routes.FLATLIST_SEPARATOR}
+        component={FlatListSeparator}
         options={{
           headerShown: false,
         }}
