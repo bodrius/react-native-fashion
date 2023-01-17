@@ -1,57 +1,57 @@
 import React from 'react';
 import {
-  FlatList,
-  TouchableHighlight,
-  Platform,
   View,
   Text,
   StyleSheet,
+  Dimensions,
+  Animated,
+  PanResponder,
+  PanResponderInstance,
 } from 'react-native';
 
+const AnimatedContainer = Animated.createAnimatedComponent(View);
+
+const {width: DEVICE_WIDTH} = Dimensions.get('window');
+
 export const FlatListSeparator = () => {
+  const animatedBgColor = new Animated.Value(0);
+
+  const backgroundColor = animatedBgColor.interpolate({
+    inputRange: [0, 300],
+    outputRange: ['black', 'yellow'],
+  });
+
+  const panResponder = React.useRef(PanResponder.create({}));
+
   return (
-    <View style={styles.box}>
-      <FlatList
-        ItemSeparatorComponent={
-          Platform.OS !== 'android' &&
-          (({highlighted}) => {
-            return (
-              <View
-                style={[styles.separator, highlighted && {marginLeft: 40}]}
-              />
-            );
-          })
-        }
-        data={[
-          {title: 'Title Text', key: 'item1'},
-          {title: 'Title Text2', key: 'item2'},
-        ]}
-        renderItem={({item, index, separators}) => (
-          <TouchableHighlight
-            key={item.key}
-            onPress={() => {}}
-            onShowUnderlay={separators.highlight}
-            onHideUnderlay={separators.unhighlight}>
-            <View style={{backgroundColor: 'white'}}>
-              <Text>{item.title}</Text>
-            </View>
-          </TouchableHighlight>
-        )}
-      />
-    </View>
+    <AnimatedContainer
+      style={[
+        styles.box,
+        {
+          backgroundColor,
+        },
+      ]}
+      {...panResponder.panHandlers}>
+      <View style={styles.screen} />
+    </AnimatedContainer>
   );
 };
 
 const styles = StyleSheet.create({
   box: {
     flex: 1,
-    backgroundColor: 'red',
-    paddingTop: 100,
+    // backgroundColor: 'red',
+    position: 'relative',
   },
 
-  separator: {
+  screen: {
+    flex: 1,
     backgroundColor: 'green',
-    width: '100%',
-    height: 2,
+    // position: 'absolute',
+    // top: 990,
+    // bottom: 0,
+    // bottom: 200,
+    // zIndex: 3,
+    left: 200,
   },
 });

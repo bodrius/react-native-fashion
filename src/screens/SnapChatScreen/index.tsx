@@ -33,6 +33,12 @@ const Navigator = () => (
         const {id} = route.params.story;
         return [id];
       }}
+      options={() => ({
+        transitionSpec: {
+          close: {animation: 'timing', config: {duration: 1000}},
+          open: {animation: 'timing', config: {duration: 1000}},
+        },
+      })}
     />
   </Stack.Navigator>
 );

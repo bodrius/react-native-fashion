@@ -1,6 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import {StyleSheet, View, FlatList, ListRenderItemInfo} from 'react-native';
 
 import {Story} from './Model';
 import StoryThumbnail from './StoryThumbnail';
@@ -51,25 +50,42 @@ export const stories: Story[] = [
   },
 ];
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    height: '100%',
-  },
-});
+const renderItem = ({item}: ListRenderItemInfo<any>) => {
+  return <StoryThumbnail key={item.id} story={item} />;
+};
 
 const Snapchat = () => {
   return (
-    <ScrollView
-      style={{flex: 1, backgroundColor: 'white'}}
-      contentContainerStyle={{backgroundColor: 'white'}}>
-      <View style={styles.container}>
-        {stories.map(story => (
-          <StoryThumbnail key={story.id} story={story} />
-        ))}
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        bounces={false}
+        data={stories}
+        numColumns={2}
+        initialNumToRender={15}
+        renderItem={renderItem}
+        scrollEventThrottle={16}
+        onEndReachedThreshold={0.5}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+        contentInsetAdjustmentBehavior="always"
+        columnWrapperStyle={styles.columnWrapperStyle}
+      />
+    </View>
   );
 };
 
 export default Snapchat;
+
+const styles = StyleSheet.create({
+  columnWrapperStyle: {
+    marginBottom: 5,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+  },
+
+  container: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+});

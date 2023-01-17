@@ -6,5 +6,5 @@ export {MainScreen} from './SwipeNavigation/MainScreen';
 export {RightScreen} from './SwipeNavigation/RightScreen';
 export {VideoVerticalCarouselScreen} from './VideoVerticalCarouselScreen';
 export {VideoHorizontalCarouselScreen} from './VideoHorizontalCarouselScreen';
-export {CircularGradientScreen} from './CircularGradientScreen';
+export {RNBiometric} from './RNBiometric';
 export {FlatListSeparator} from './FlatListSeparator';

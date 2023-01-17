@@ -1,10 +1,10 @@
+import {StyleSheet, View, Alert} from 'react-native';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import React, {useEffect, useCallback, useState, useMemo} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Alert} from 'react-native';
 
 const PAYLOAD_SALT = 'heyLove'; // from .env
 
-export const CircularGradientScreen = () => {
+export const RNBiometric = () => {
   const [biometricData, setBiometricData] = useState({
     available: false,
     signature: '',

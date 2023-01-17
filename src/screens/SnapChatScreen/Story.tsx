@@ -57,7 +57,7 @@ const Story = ({route, navigation}: StoryProps) => {
     const scale = interpolate(
       translation.y.value,
       [0, height],
-      [1, 0.5],
+      [1, 0.89],
       Extrapolate.CLAMP,
     );
     return {
@@ -71,9 +71,8 @@ const Story = ({route, navigation}: StoryProps) => {
 
   const borderStyle = useAnimatedStyle(() => {
     return {
-      width: withTiming(!isGestureActive.value ? width : 300),
-      height: withTiming(!isGestureActive.value ? height : 300),
-      borderRadius: withTiming(!isGestureActive.value ? 0 : 500),
+      width: withTiming(!isGestureActive.value ? width : 190),
+      height: withTiming(!isGestureActive.value ? height : 297),
     };
   });
 
@@ -90,7 +89,7 @@ const Story = ({route, navigation}: StoryProps) => {
                   width: 50,
                   height: 50,
                   resizeMode: 'cover',
-                  borderRadius: 50,
+                  borderRadius: 10,
                 },
                 borderStyle,
               ]}

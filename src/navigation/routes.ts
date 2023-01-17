@@ -4,7 +4,7 @@ export enum Routes {
   SNAP_CHAT_SCREEN = 'SNAP_CHAT_SCREEN',
   VIDEO_VERTICAL_SCREEN = 'VIDEO_VERTICAL_SCREEN',
   VIDEO_HORIZONTAL_SCREEN = 'VIDEO_HORIZONTAL_SCREEN',
-  CIRCULAR_GRADIENT_SCREEN = 'CIRCULAR_GRADIENT_SCREEN',
+  RN_BIOMETRIC = 'RN_BIOMETRIC',
 
   SWIPE_STACK = 'SWIPE_STACK',
   SWIPE_SCREEN = 'SWIPE_SCREEN',
@@ -40,8 +40,8 @@ export const routeData = [
   },
 
   {
-    name: 'Circular gradient',
-    routeName: Routes.CIRCULAR_GRADIENT_SCREEN,
+    name: 'RN Biometric',
+    routeName: Routes.RN_BIOMETRIC,
   },
 
   {

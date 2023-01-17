@@ -2,19 +2,19 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 
-import {Routes} from './routes';
 import {
-  PanGestureScreen,
   HomeScreen,
   MainScreen,
   RightScreen,
+  RNBiometric,
+  PanGestureScreen,
   FlatListSeparator,
-  CircularGradientScreen,
   VideoVerticalCarouselScreen,
   VideoHorizontalCarouselScreen,
 } from '../screens';
-import SnapChatStack from '../screens/SnapChatScreen';
+import {Routes} from './routes';
 import {windowHeight, windowWidth} from '../helpers';
+import SnapChatStack from '../screens/SnapChatScreen';
 
 const Stack = createStackNavigator();
 
@@ -54,7 +54,7 @@ export const Navigator = () => {
         name={Routes.SWIPE_STACK}
         component={SwipeNavigator}
         options={{
-          headerShown: false,
+          headerShown: true,
         }}
       />
 
@@ -79,8 +79,8 @@ export const Navigator = () => {
       />
 
       <Stack.Screen
-        name={Routes.CIRCULAR_GRADIENT_SCREEN}
-        component={CircularGradientScreen}
+        name={Routes.RN_BIOMETRIC}
+        component={RNBiometric}
         options={{
           headerShown: false,
         }}

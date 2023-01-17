@@ -84,7 +84,7 @@ export const PanGestureScreen = () => {
 const styles = StyleSheet.create({
   layout: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
   },
 
   card: {
