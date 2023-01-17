@@ -3,12 +3,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 
 import {
+  Swiping,
   HomeScreen,
   MainScreen,
   RightScreen,
   RNBiometric,
   PanGestureScreen,
-  FlatListSeparator,
   VideoVerticalCarouselScreen,
   VideoHorizontalCarouselScreen,
 } from '../screens';
@@ -87,8 +87,8 @@ export const Navigator = () => {
       />
 
       <Stack.Screen
-        name={Routes.FLATLIST_SEPARATOR}
-        component={FlatListSeparator}
+        name={Routes.SWIPING_SCREEN}
+        component={Swiping}
         options={{
           headerShown: false,
         }}
@@ -102,7 +102,7 @@ const SharedStack = createSharedElementStackNavigator();
 export const SwipeNavigator = () => (
   <SharedStack.Navigator
     detachInactiveScreens={false}
-    // mode="modal"
+    mode="modal"
     screenOptions={{
       gestureEnabled: true,
       headerShown: false,

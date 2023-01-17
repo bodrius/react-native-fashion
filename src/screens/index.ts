@@ -3,8 +3,7 @@ export {HomeScreen} from './HomeScreen';
 //feature
 export {PanGestureScreen} from './PanGestureScreen';
 export {MainScreen} from './SwipeNavigation/MainScreen';
-export {RightScreen} from './SwipeNavigation/RightScreen';
 export {VideoVerticalCarouselScreen} from './VideoVerticalCarouselScreen';
 export {VideoHorizontalCarouselScreen} from './VideoHorizontalCarouselScreen';
 export {RNBiometric} from './RNBiometric';
-export {FlatListSeparator} from './FlatListSeparator';
+export {Swiping} from './SwipeableCards';

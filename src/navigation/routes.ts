@@ -10,7 +10,7 @@ export enum Routes {
   SWIPE_SCREEN = 'SWIPE_SCREEN',
   RIGHT_SWIPE_SCREEN = 'RIGHT_SWIPE_SCREEN',
 
-  FLATLIST_SEPARATOR = 'FLATLIST_SEPARATOR',
+  SWIPING_SCREEN = 'SWIPING_SCREEN',
 }
 
 export const routeData = [
@@ -45,7 +45,7 @@ export const routeData = [
   },
 
   {
-    name: 'FlatList Separator',
-    routeName: Routes.FLATLIST_SEPARATOR,
+    name: 'Swiping user cards',
+    routeName: Routes.SWIPING_SCREEN,
   },
 ];
